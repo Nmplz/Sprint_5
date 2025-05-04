@@ -28,3 +28,13 @@ class BasePage:
         except NoSuchElementException:
             return False
         return True    
+    
+    def is_element_with_text_present(self, how, what, text):
+        try:
+            elements = self.browser.find_elements(how, what)
+            for element in elements:
+                if element.text == text:
+                    return True
+            raise Exception(f"There is No such element '{what}' with text '{text}'")
+        except NoSuchElementException:
+            return False

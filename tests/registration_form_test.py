@@ -14,23 +14,16 @@ class TestRegistrationForm:
         page = MainPage(browser)
         page.open()
         page.go_to_enter_and_registration_form()
-        page = RegistrationModal(browser)
-        page.enter_email()
-        page.enter_password()
-        page.submit_account_creation()
-        assert #TODO 
+
+        form = RegistrationModal(browser)
+        form.enter_email()
+        form.enter_password()
+        form.submit_account_creation()
+
+        assert page.is_current_url_correct(), "Неверный URL после регистрации"
+        assert page.is_user_avatar_displayed(),  "Имя пользователя не отображается"
+        assert page.is_user_name_displayed(),  "Аватар не отображается"
 
 
 
 
-
-
-
-"""
-Регистрация пользователя
-Что нужно сделать:
-Нажать кнопку «Вход и регистрация».
-Нажать кнопку «Нет аккаунта».
-Заполнить все поля формы регистрации и нажать кнопку «Создать аккаунт».
-Проверить: произошёл переход на главную страницу, в правом верхнем углу около кнопки «Разместить объявление» отображается аватар пользователя и имя User.
-"""
