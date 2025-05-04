@@ -14,8 +14,8 @@ class RegistrationFormLocators:
     ENTER_EMAIL = (By.CSS_SELECTOR, "input[placeholder='Введите Email']")
     ENTER_PASSWORD = (By.CSS_SELECTOR, "input[placeholder='Пароль']")
     ENTER_PASSWORD_REPITE = (By.CSS_SELECTOR, "input[placeholder='Повторите пароль']")
-    CREATE_ACCOUNT_BUTTON = (By.XPATH, "//button[@type='submit'] and contains(text(), 'Создать аккаунт')]")
-    ALLREADY_HAVE_ACCOUNT_BUTTON = (By.XPATH, "//button[@type='button'] and contains(text(), 'Уже есть аккаунт')]")
+    CREATE_ACCOUNT_BUTTON = (By.XPATH, "//button[@type='submit' and contains(text(), 'Создать аккаунт')]")
+    ALLREADY_HAVE_ACCOUNT_BUTTON = (By.XPATH, "//button[@type='button' and contains(text(), 'Уже есть аккаунт')]")
 
 
 class MainPageLocators:
