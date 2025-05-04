@@ -1,6 +1,7 @@
 import pytest
 from selenium.webdriver.common.by import By
 from pages.main_page import MainPage
+from pages.registration_modal import RegistrationModal
 
 
 
@@ -13,8 +14,13 @@ class TestRegistrationForm:
         page = MainPage(browser)
         page.open()
         page.go_to_enter_and_registration_form()
-        #TODO
-        
+        page = RegistrationModal(browser)
+        page.enter_email()
+        page.enter_password()
+        page.submit_account_creation()
+        assert #TODO 
+
+
 
 
 
