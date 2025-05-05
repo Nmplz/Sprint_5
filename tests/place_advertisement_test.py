@@ -7,7 +7,7 @@ from data import TestCredentials
 
 
 class TestPlaceAdvertisement:
-     
+
     @allure.title("Нельзя создать объявление без авторизации")
     @pytest.mark.place_ad
     def test_create_ad_without_authentication_false(self, browser):
@@ -30,8 +30,6 @@ class TestPlaceAdvertisement:
         form.enter_existing_email(TestCredentials.EMAIL)
         form.enter_existing_user_password(TestCredentials.PASSWORD)
         form.submit_login_form_button()
-
-        page = MainPage(browser)
         page.click_place_ad_button(expect_page_reload=True)
 
         page_ad = NewAdvertisementPage(browser)
@@ -42,12 +40,9 @@ class TestPlaceAdvertisement:
         product_city = page_ad.set_product_city()
         page_ad.set_product_condition_to_used()
         page_ad.click_submit_button()
-
         page.go_to_user_profile()
-        
 
         name, city, price = page.get_ad_info_by_title(product_name)
-
 
         assert name == product_name, f"Название товара > {name}, не соответствует ожидаемому > {product_name}"
         assert city == product_city, f"Название города > {city}, не соответствует ожидаемому > {product_city}"
