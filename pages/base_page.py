@@ -38,9 +38,9 @@ class BasePage:
     def wait_for_presence(self, locator):
         return self.wait.until(EC.presence_of_element_located(locator))
 
-    def is_element_present(self, how, what):
+    def is_element_present(self, locator):
         try:
-            self.browser.find_element(how, what)
+            self.wait_for_presence(locator)
         except NoSuchElementException:
             return False
         return True    

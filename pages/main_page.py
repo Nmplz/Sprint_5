@@ -17,12 +17,12 @@ class MainPage(BasePage):
 
     @allure.step("Проверяем отображение кнопки 'Вход и регистрация'")
     def is_enter_and_registration_button_displayed(self):
-        return self.is_element_present(*BasePageLocators.ENTER_AND_REGISTRATION_BUTTON)
+        return self.is_element_present(BasePageLocators.ENTER_AND_REGISTRATION_BUTTON)
 
     @allure.step("Проверяем, что отображается аватар пользователя")
     def is_user_avatar_displayed(self):
         self.wait_for_clickable(MainPageLocators.AVATAR_IMAGE)
-        avatar = self.is_element_present(*MainPageLocators.AVATAR_IMAGE)
+        avatar = self.is_element_present(MainPageLocators.AVATAR_IMAGE)
         return avatar
 
     @allure.step("Проверяем, что отображается имя пользователя")

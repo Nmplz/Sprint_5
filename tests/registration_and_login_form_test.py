@@ -90,4 +90,4 @@ class TestRegistrationAndLoginForm:
         form.submit_login_form_button()
         form.submit_logout_button()
 
-        assert not page.is_enter_and_registration_button_displayed(), "Должна отображаться кнопка 'Вход и регистрация' после логаута"
+        assert page.is_enter_and_registration_button_displayed(), "Должна отображаться кнопка 'Вход и регистрация' после логаута"
