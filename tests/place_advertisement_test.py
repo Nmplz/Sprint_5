@@ -44,7 +44,7 @@ class TestPlaceAdvertisement:
 
         page = MainPage(browser)
         page.go_to_user_profile()
-        time.sleep(5)
+        
 
         name, city, price = page.get_ad_info_by_title(product_name)
 
