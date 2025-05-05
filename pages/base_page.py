@@ -1,4 +1,6 @@
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from .locators import BasePageLocators
 
 class BasePage:
@@ -7,17 +9,34 @@ class BasePage:
 
     def __init__(self, browser, timeout=10):
         self.browser = browser
-        self.browser.implicitly_wait(timeout)
+        self.wait = WebDriverWait(browser, timeout)
+
 
     def open(self, url_suffix=""):
         self.browser.get(self.BASE_URL + url_suffix)
 
     def go_to_enter_and_registration_form(self):
-        
-        link = self.browser.find_element(*BasePageLocators.ENTER_AND_REGISTRATION_BUTTON)
-        link.click()
-        
+        # WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable(BasePageLocators.ENTER_AND_REGISTRATION_BUTTON)).click()
+        self.click(BasePageLocators.ENTER_AND_REGISTRATION_BUTTON)
 
+        
+    def current_url(self):
+        return self.browser.current_url
+
+    def find(self, locator):
+        return self.browser.find_element(*locator)
+
+    def wait_for_clickable(self, locator):
+        return self.wait.until(EC.element_to_be_clickable(locator))
+
+    def click(self, locator):
+        self.wait_for_clickable(locator).click()
+
+    def wait_until_stale(self, element):
+        self.wait.until(EC.staleness_of(element))
+
+    def wait_for_presence(self, locator):
+        return self.wait.until(EC.presence_of_element_located(locator))
 
     def is_element_present(self, how, what):
         try:

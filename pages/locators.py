@@ -28,6 +28,15 @@ class MainPageLocators:
     PLACE_AD_BUTTON = (By.XPATH, "//button[@type='button' and contains(text(), 'Разместить объявление')]")
     AVATAR_IMAGE = (By.CSS_SELECTOR, "button.circleSmall")
     USER_NAME = (By.CSS_SELECTOR, "div.columnSmall h3.profileText.name")
+    USER_PROFILE_AD_NAME = (By.XPATH, ".//h2")
+    USER_PROFILE_AD_CITY = (By.XPATH, ".//h3")
+    USER_PROFILE_AD_PRICE = (By.XPATH, ".//div[@class='price']/h2")
+
+    @staticmethod
+    def user_profile_ad_card(title):
+        return (By.XPATH, f"//div[@class='card'][.//h2[text()='{title}']]")
+    
+
 
 
 class NewAdvertisementPageLocators:

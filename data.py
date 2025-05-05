@@ -1,5 +1,5 @@
 
 class TestCredentials:
 
-    EMAIL = "testuser5@mail.ru"
+    EMAIL = "testuser8@mail.ru"
     PASSWORD = "123"
