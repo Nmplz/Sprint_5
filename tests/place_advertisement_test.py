@@ -44,6 +44,8 @@ class TestPlaceAdvertisement:
         page_ad.click_submit_button()
 
         page.go_to_user_profile()
+        
+
         name, city, price = page.get_ad_info_by_title(product_name)
 
 
