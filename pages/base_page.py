@@ -16,7 +16,6 @@ class BasePage:
         self.browser.get(self.BASE_URL + url_suffix)
 
     def go_to_enter_and_registration_form(self):
-        # WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable(BasePageLocators.ENTER_AND_REGISTRATION_BUTTON)).click()
         self.click(BasePageLocators.ENTER_AND_REGISTRATION_BUTTON)
 
         
